@@ -1,5 +1,6 @@
 package com.transporeon.demoapplicaiton.service;
 
+import com.transporeon.demoapplicaiton.exception.type.CustomerNotFoundException;
 import com.transporeon.demoapplicaiton.mapper.CustomerMapper;
 import com.transporeon.demoapplicaiton.model.dto.customer.CustomerDto;
 import com.transporeon.demoapplicaiton.model.entity.customer.Customer;
@@ -47,7 +48,7 @@ public class CustomerService {
 
     private Customer getCustomerFromDatabaseById(final Long customerId) {
         final Optional<Customer> customerFromDatabase = customerRepository.findById(customerId);
-        return customerFromDatabase.orElseThrow(RuntimeException::new);
+        return customerFromDatabase.orElseThrow(CustomerNotFoundException::new);
 
         /*
             if (customerFromDatabase.isPresent()) {
