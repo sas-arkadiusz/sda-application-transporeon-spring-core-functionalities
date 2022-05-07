@@ -6,9 +6,9 @@ import javax.persistence.*;
 
 @Entity
 @Getter
-@Builder
+@Setter
 @NoArgsConstructor
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor
 public class Customer {
 
     @Id

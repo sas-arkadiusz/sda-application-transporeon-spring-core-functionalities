@@ -1,17 +1,15 @@
 package com.transporeon.demoapplicaiton.model.dto.customer;
 
 import com.transporeon.demoapplicaiton.model.entity.customer.Address;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
+
 @Getter
-@Builder
-@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+@Setter
+@NoArgsConstructor
 public class CustomerDto {
 
-    private final Long id;
-    private final String firstName;
-    private final String lastName;
-    private final Address address;
+    private Long id;
+    private String firstName;
+    private String lastName;
+    private Address address;
 }
