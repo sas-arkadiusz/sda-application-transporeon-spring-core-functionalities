@@ -4,7 +4,6 @@ import com.transporeon.demoapplicaiton.model.dto.customer.CustomerDto;
 import com.transporeon.demoapplicaiton.model.request.UpsertCustomerRequest;
 import com.transporeon.demoapplicaiton.service.CustomerService;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
