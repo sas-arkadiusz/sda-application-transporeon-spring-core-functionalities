@@ -16,7 +16,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsService userDetailsService;
 
-    public SecurityConfiguration(@Qualifier("customUserDetailsService") final UserDetailsService userDetailsService) {
+    // @Qualifier("customUserDetailsService")
+    public SecurityConfiguration(final UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
 
@@ -26,12 +27,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/api/user").permitAll()
-                .antMatchers("/api/*").authenticated()
+                .antMatchers("/api/customer").authenticated()
                 .and().httpBasic();
 
         http.formLogin()
                 .loginPage("/login")
                 .permitAll();
+
 
         http.logout()
                 .permitAll();
