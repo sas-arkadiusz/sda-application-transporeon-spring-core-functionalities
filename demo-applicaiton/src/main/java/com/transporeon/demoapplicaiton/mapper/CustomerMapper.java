@@ -1,14 +1,13 @@
 package com.transporeon.demoapplicaiton.mapper;
 
 import com.transporeon.demoapplicaiton.model.dto.customer.CustomerDto;
-import com.transporeon.demoapplicaiton.model.entity.BaseLocation;
 import com.transporeon.demoapplicaiton.model.entity.customer.Address;
 import com.transporeon.demoapplicaiton.model.entity.customer.Customer;
-import com.transporeon.demoapplicaiton.model.request.CreateCustomerRequest;
+import com.transporeon.demoapplicaiton.model.request.UpsertCustomerRequest;
 
 public class CustomerMapper {
 
-    public static Customer map(final CreateCustomerRequest request) {
+    public static Customer map(final UpsertCustomerRequest request) {
         final Address address = new Address();
         address.setStreetAddress(request.getStreetAddress());
         address.setPostalCode(request.getPostalCode());

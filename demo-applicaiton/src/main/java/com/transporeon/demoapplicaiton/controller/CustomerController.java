@@ -1,7 +1,7 @@
 package com.transporeon.demoapplicaiton.controller;
 
 import com.transporeon.demoapplicaiton.model.dto.customer.CustomerDto;
-import com.transporeon.demoapplicaiton.model.request.CreateCustomerRequest;
+import com.transporeon.demoapplicaiton.model.request.UpsertCustomerRequest;
 import com.transporeon.demoapplicaiton.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -25,7 +25,19 @@ public class CustomerController {
     }
 
     @PostMapping
-    public ResponseEntity<CustomerDto> createCustomer(@RequestBody final CreateCustomerRequest request) {
+    public ResponseEntity<CustomerDto> createCustomer(@RequestBody final UpsertCustomerRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED).body(customerService.createCustomer(request));
+    }
+
+    @PutMapping
+    public ResponseEntity<CustomerDto> updateCustomer(@RequestParam final Long customerId,
+                                                      @RequestBody final UpsertCustomerRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(customerService.updateCustomer(customerId, request));
+    }
+
+    @DeleteMapping("/{customerId}")
+    public ResponseEntity<Void> deleteCustomer(@PathVariable("customerId") final Long customerId) {
+        customerService.deleteCustomerById(customerId);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }
