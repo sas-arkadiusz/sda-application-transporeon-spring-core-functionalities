@@ -1,0 +1,8 @@
+<div>
+    <label for="user-username">Username</label>
+    <input id="user-username" #userUsername/>
+    <label for="user-password">Password</label>
+    <input id="user-password" #userPassword/>
+    <br>
+    <button type="button" (click)="add(userUsername.value, userPassword.value);">Utwórz!</button>
+</div>
